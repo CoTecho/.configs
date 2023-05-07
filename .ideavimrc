@@ -1,8 +1,10 @@
-" text scroll if you mouse-click near the start or end of the window.
-set scrolloff=5
-
 " 同步剪切板，单向
-set clipboard+=unnamed
+" set clipboard+=unnamed
+
+" 不同步剪切板了，改用<C-C>来便捷复制
+vnoremap <C-C> \"+y`<v`>
+nnoremap <C-C> \"+yiw:echo "<C-R>+"<CR>
+inoremap <C-C> <ESC>\"+yiwi<C-O>:echo "<C-R>+"<CR>
 noremap ,p \"+p
 noremap ,P \"+P
 
@@ -25,8 +27,7 @@ set smartcase
 " 禁用警报
 set visualbell
 
-" 设置,为快捷键起始
-noremap ,, ,
+" ,为快捷键起始 它原本的功能完全可以用0;替代
 " 查找
 noremap ,F :action Find<CR>
 noremap ,f /<C-R>+<CR>
@@ -42,7 +43,17 @@ noremap ,o :action MoveEditorToOppositeTabGroup<CR>
 " 打开Project窗口
 noremap gp :action SelectInProjectView<CR>
 " 关闭当前tab"
-noremap gc :tabc
+noremap gc :tabc<CR>
+
+" 输入模式移动光标
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
 " Do incremental searching.
 set incsearch
 

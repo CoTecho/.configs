@@ -27,7 +27,8 @@ set smartcase
 " 禁用警报
 set visualbell
 
-" ,为快捷键起始 它原本的功能完全可以用0;替代
+" 设置,为快捷键起始
+noremap ,, ,
 " 查找
 noremap ,F :action Find<CR>
 noremap ,f /<C-R>+<CR>

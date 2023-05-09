@@ -5,6 +5,7 @@
 vnoremap <C-C> \"+y`<v`>
 nnoremap <C-C> \"+yiw:echo "<C-R>+"<CR>
 inoremap <C-C> <ESC>\"+yiwi<C-O>:echo "<C-R>+"<CR>
+inoremap <C-V> <ESC>\"+pa
 noremap ,p \"+p
 noremap ,P \"+P
 
@@ -43,8 +44,8 @@ noremap ,l <C-W>l
 noremap ,o :action MoveEditorToOppositeTabGroup<CR>
 " 打开Project窗口
 noremap gp :action SelectInProjectView<CR>
-" 关闭当前tab"
-noremap gc :tabc<CR>
+" 关闭当前tab
+noremap gc <C-W>v<C-W>h:action MoveEditorToOppositeTabGroup<CR><C-W>c
 
 " 输入模式移动光标
 inoremap <C-h> <Left>
@@ -66,5 +67,5 @@ map Q gq
 " Highlight copied text
 Plug 'machakann/vim-highlightedyank'
 " Commentary plugin
-Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-commentary'
 
